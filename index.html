@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Identificación de emociones</title>
+
+<style>
+  body {
+    background: #f5f6fa;
+    font-family: system-ui, sans-serif;
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .content-wrapper {
+    max-width: 900px;
+    width: 100%;
+  }
+
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.8rem 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  }
+
+  h2 {
+    margin: 0 0 0.2rem 0;
+  }
+
+  .subtitle {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #666;
+  }
+
+  h3 {
+    margin-top: 1.7rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .info-card {
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 1rem;
+    border: 1px solid #e6e6e6;
+  }
+
+  .info-card h4 {
+    margin: 0 0 0.3rem;
+  }
+
+  .recommendation-box {
+    background: #eef3ff;
+    border-left: 5px solid #4e73df;
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    margin-top: 1rem;
+  }
+
+  .mood-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .mood-card {
+    border-radius: 12px;
+    padding: 1rem;
+    color: #fff;
+  }
+
+  .mood-1 {
+    background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+  }
+
+  .mood-2 {
+    background: linear-gradient(135deg, #ff6b6b 0%, #c92a2a 100%);
+  }
+
+  .mood-3 {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    color: #2d3748;
+  }
+
+  .mood-4 {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+  }
+
+  .quote-box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    padding: 1.8rem 1.4rem;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .quote-box p {
+    margin: 0;
+    font-size: 1.15em;
+    font-weight: 600;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 600px) {
+    .card {
+      padding: 1.4rem 1rem;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="content-wrapper">
+  <section class="card">
+    <h2>🎯 Identificación de emociones</h2>
+    <p class="subtitle">¿Qué estoy sintiendo?</p>
+
+    <h3>Reconocer y nombrar las emociones</h3>
+    <p>
+      <strong>“La alfabetización emocional consiste en nombrar y observar la emoción sin juzgarla.”</strong>
+      Al hacerlo, cambiamos el dominio de acción, como explicaría Maturana: dejamos de reaccionar en automático
+      y empezamos a elegir cómo queremos responder en el trabajo y en la vida cotidiana.
+    </p>
+    <p>
+      Identificar lo que sentimos es el primer paso para <strong>gestionar conscientemente</strong> nuestras
+      emociones en contextos de estrés laboral, mejorando la comunicación, la convivencia y la efectividad en el equipo.
+    </p>
+
+    <h3>Emociones básicas y complejas</h3>
+    <div class="card-grid">
+      <div class="info-card">
+        <h4>😊 Emociones básicas</h4>
+        <p>Alegría, tristeza, miedo, ira, sorpresa, asco.</p>
+        <p style="font-size:0.9em;">
+          Suelen aparecer de forma rápida y directa. Funcionan como “señales” iniciales frente a lo que sucede.
+        </p>
+      </div>
+      <div class="info-card">
+        <h4>🎭 Emociones complejas</h4>
+        <p>Frustración, ansiedad, orgullo, vergüenza, culpa.</p>
+        <p style="font-size:0.9em;">
+          Surgen de combinaciones de experiencias, pensamientos e interpretaciones más elaboradas.
+        </p>
+      </div>
+    </div>
+
+    <h3>Técnicas de identificación</h3>
+
+    <div class="recommendation-box">
+      <h4>📝 Registro emocional diario</h4>
+      <p>
+        Al final del día, anota:
+        <br>• ¿Qué emoción predominó hoy?
+        <br>• ¿En qué momento apareció con más fuerza?
+        <br>• ¿Qué la desencadenó (situación, persona, pensamiento)?
+      </p>
+    </div>
+
+    <div class="recommendation-box">
+      <h4>🫀 Atención a señales corporales</h4>
+      <p>
+        El cuerpo habla antes que las palabras:
+        <br>• Tensión en el pecho o respiración agitada → ansiedad o miedo.
+        <br>• Calor en la cara o manos apretadas → ira.
+        <br>• Nudo en el estómago o pesadez corporal → tristeza o preocupación.
+      </p>
+    </div>
+
+    <div class="recommendation-box">
+      <h4>🔍 Reflexión sobre desencadenantes</h4>
+      <p>
+        Identifica patrones:
+        <br>• ¿Qué situaciones en tu trabajo tienden a generar las mismas emociones?
+        <br>• ¿Hay palabras, gestos o contextos que “encienden” tu reactividad?
+      </p>
+    </div>
+
+    <h3>MoodMeter: explora tu estado emocional</h3>
+    <p style="color: #4a5568; margin-bottom: 15px;">
+      Las emociones se pueden entender en dos dimensiones:
+      <strong>valencia</strong> (qué tan agradable o desagradable se siente)
+      y <strong>energía</strong> (qué tan alta o baja es la activación).
+      Ubicarte en estas coordenadas te ayuda a comprender mejor tu estado actual.
+    </p>
+
+    <div class="mood-grid">
+      <div class="mood-card mood-1">
+        <h4>Alta energía + Agradable</h4>
+        <p>Entusiasmo, alegría, motivación.</p>
+        <p style="font-size:0.9em;">
+          Ideal para iniciar proyectos, crear, proponer ideas y colaborar activamente.
+        </p>
+      </div>
+
+      <div class="mood-card mood-2">
+        <h4>Alta energía + Desagradable</h4>
+        <p>Ira, ansiedad, pánico.</p>
+        <p style="font-size:0.9em;">
+          Señal de alerta: útil para reaccionar rápido, pero agotador si se sostiene mucho tiempo.
+        </p>
+      </div>
+
+      <div class="mood-card mood-3">
+        <h4>Baja energía + Agradable</h4>
+        <p>Calma, paz, serenidad.</p>
+        <p style="font-size:0.9em;">
+          Estado óptimo para escuchar, reflexionar y tomar decisiones con mayor claridad.
+        </p>
+      </div>
+
+      <div class="mood-card mood-4">
+        <h4>Baja energía + Desagradable</h4>
+        <p>Tristeza, cansancio, apatía.</p>
+        <p style="font-size:0.9em;">
+          Mensaje de que necesitas descanso, apoyo o una pausa para recargar recursos.
+        </p>
+      </div>
+    </div>
+
+    <div class="quote-box">
+      <p>
+        “Lo que sientes tiene un mensaje. En lugar de pelear con la emoción, <br>
+        obsérvala, nómbrala y decide desde qué espacio quieres actuar.”
+      </p>
+    </div>
+
+  </section>
+</div>
+
+</body>
+</html>
