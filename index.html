@@ -58,20 +58,47 @@
     border-radius: 12px;
     padding: 1rem;
     border: 1px solid #e6e6e6;
+    cursor: default;
   }
 
   .info-card h4 {
     margin: 0 0 0.3rem;
   }
 
+  /* Técnicas plegables */
   .recommendation-box {
     background: #eef3ff;
     border-left: 5px solid #4e73df;
     border-radius: 10px;
-    padding: 1rem 1.2rem;
+    padding: 0.8rem 1.2rem;
     margin-top: 1rem;
   }
 
+  .recommendation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .recommendation-header h4 {
+    margin: 0;
+  }
+
+  .toggle-icon {
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+  }
+
+  .recommendation-content {
+    margin-top: 0.5rem;
+  }
+
+  .recommendation-box.collapsed .recommendation-content {
+    display: none;
+  }
+
+  /* MoodMeter interactivo */
   .mood-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -83,6 +110,12 @@
     border-radius: 12px;
     padding: 1rem;
     color: #fff;
+    cursor: pointer;
+    transition: transform 0.12s ease, box-shadow 0.12s ease, outline 0.12s ease;
+  }
+
+  .mood-card h4 {
+    margin-top: 0;
   }
 
   .mood-1 {
@@ -100,6 +133,29 @@
 
   .mood-4 {
     background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+  }
+
+  .mood-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  }
+
+  .mood-card.selected {
+    outline: 3px solid #fff;
+    box-shadow: 0 0 0 3px rgba(102,126,234,0.6);
+  }
+
+  .mood-output {
+    margin-top: 1.2rem;
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    font-size: 0.95rem;
+  }
+
+  .mood-output h4 {
+    margin: 0 0 0.25rem;
   }
 
   .quote-box {
@@ -164,33 +220,49 @@
 
     <h3>Técnicas de identificación</h3>
 
-    <div class="recommendation-box">
-      <h4>📝 Registro emocional diario</h4>
-      <p>
-        Al final del día, anota:
-        <br>• ¿Qué emoción predominó hoy?
-        <br>• ¿En qué momento apareció con más fuerza?
-        <br>• ¿Qué la desencadenó (situación, persona, pensamiento)?
-      </p>
+    <!-- Técnicas plegables -->
+    <div class="recommendation-box collapsible">
+      <div class="recommendation-header">
+        <h4>📝 Registro emocional diario</h4>
+        <span class="toggle-icon">−</span>
+      </div>
+      <div class="recommendation-content">
+        <p>
+          Al final del día, anota:
+          <br>• ¿Qué emoción predominó hoy?
+          <br>• ¿En qué momento apareció con más fuerza?
+          <br>• ¿Qué la desencadenó (situación, persona, pensamiento)?
+        </p>
+      </div>
     </div>
 
-    <div class="recommendation-box">
-      <h4>🫀 Atención a señales corporales</h4>
-      <p>
-        El cuerpo habla antes que las palabras:
-        <br>• Tensión en el pecho o respiración agitada → ansiedad o miedo.
-        <br>• Calor en la cara o manos apretadas → ira.
-        <br>• Nudo en el estómago o pesadez corporal → tristeza o preocupación.
-      </p>
+    <div class="recommendation-box collapsible">
+      <div class="recommendation-header">
+        <h4>🫀 Atención a señales corporales</h4>
+        <span class="toggle-icon">−</span>
+      </div>
+      <div class="recommendation-content">
+        <p>
+          El cuerpo habla antes que las palabras:
+          <br>• Tensión en el pecho o respiración agitada → ansiedad o miedo.
+          <br>• Calor en la cara o manos apretadas → ira.
+          <br>• Nudo en el estómago o pesadez corporal → tristeza o preocupación.
+        </p>
+      </div>
     </div>
 
-    <div class="recommendation-box">
-      <h4>🔍 Reflexión sobre desencadenantes</h4>
-      <p>
-        Identifica patrones:
-        <br>• ¿Qué situaciones en tu trabajo tienden a generar las mismas emociones?
-        <br>• ¿Hay palabras, gestos o contextos que “encienden” tu reactividad?
-      </p>
+    <div class="recommendation-box collapsible">
+      <div class="recommendation-header">
+        <h4>🔍 Reflexión sobre desencadenantes</h4>
+        <span class="toggle-icon">−</span>
+      </div>
+      <div class="recommendation-content">
+        <p>
+          Identifica patrones:
+          <br>• ¿Qué situaciones en tu trabajo tienden a generar las mismas emociones?
+          <br>• ¿Hay palabras, gestos o contextos que “encienden” tu reactividad?
+        </p>
+      </div>
     </div>
 
     <h3>MoodMeter: explora tu estado emocional</h3>
@@ -198,41 +270,41 @@
       Las emociones se pueden entender en dos dimensiones:
       <strong>valencia</strong> (qué tan agradable o desagradable se siente)
       y <strong>energía</strong> (qué tan alta o baja es la activación).
-      Ubicarte en estas coordenadas te ayuda a comprender mejor tu estado actual.
+      Haz clic en el cuadrante que más se parezca a cómo te sientes ahora.
     </p>
 
     <div class="mood-grid">
-      <div class="mood-card mood-1">
+      <div class="mood-card mood-1"
+           data-id="alta-agradable">
         <h4>Alta energía + Agradable</h4>
         <p>Entusiasmo, alegría, motivación.</p>
-        <p style="font-size:0.9em;">
-          Ideal para iniciar proyectos, crear, proponer ideas y colaborar activamente.
-        </p>
       </div>
 
-      <div class="mood-card mood-2">
+      <div class="mood-card mood-2"
+           data-id="alta-desagradable">
         <h4>Alta energía + Desagradable</h4>
         <p>Ira, ansiedad, pánico.</p>
-        <p style="font-size:0.9em;">
-          Señal de alerta: útil para reaccionar rápido, pero agotador si se sostiene mucho tiempo.
-        </p>
       </div>
 
-      <div class="mood-card mood-3">
+      <div class="mood-card mood-3"
+           data-id="baja-agradable">
         <h4>Baja energía + Agradable</h4>
         <p>Calma, paz, serenidad.</p>
-        <p style="font-size:0.9em;">
-          Estado óptimo para escuchar, reflexionar y tomar decisiones con mayor claridad.
-        </p>
       </div>
 
-      <div class="mood-card mood-4">
+      <div class="mood-card mood-4"
+           data-id="baja-desagradable">
         <h4>Baja energía + Desagradable</h4>
         <p>Tristeza, cansancio, apatía.</p>
-        <p style="font-size:0.9em;">
-          Mensaje de que necesitas descanso, apoyo o una pausa para recargar recursos.
-        </p>
       </div>
+    </div>
+
+    <div class="mood-output" id="mood-output">
+      <h4>Elige un cuadrante para explorar tu estado.</h4>
+      <p>
+        Haz clic en uno de los recuadros del MoodMeter y verás una breve interpretación y una sugerencia para actuar
+        de forma más consciente.
+      </p>
     </div>
 
     <div class="quote-box">
@@ -244,6 +316,67 @@
 
   </section>
 </div>
+
+<script>
+  // --- Técnicas plegables ---
+  document.querySelectorAll('.recommendation-box.collapsible').forEach(box => {
+    const header = box.querySelector('.recommendation-header');
+    const icon = box.querySelector('.toggle-icon');
+
+    header.addEventListener('click', () => {
+      box.classList.toggle('collapsed');
+      icon.textContent = box.classList.contains('collapsed') ? '+' : '−';
+    });
+  });
+
+  // --- MoodMeter interactivo ---
+  const moodCards = document.querySelectorAll('.mood-card');
+  const moodOutput = document.getElementById('mood-output');
+
+  const moodMessages = {
+    'alta-agradable': {
+      title: '😊 Estás en alta energía agradable',
+      text: 'Probablemente te sientes motivado/a o entusiasta. Aprovecha este estado para impulsar tareas que requieren creatividad, conexión con otros y liderazgo positivo.',
+      tip: 'Tip: Elige una tarea importante que quieras avanzar hoy y da un pequeño paso mientras estás con esta energía.'
+    },
+    'alta-desagradable': {
+      title: '⚡ Estás en alta energía desagradable',
+      text: 'Puede que estés ansioso/a, molesto/a o a la defensiva. Es una señal de alerta: tu sistema está activado.',
+      tip: 'Tip: Haz 3 respiraciones profundas, toma un vaso de agua y, si puedes, espera un momento antes de responder correos o mensajes sensibles.'
+    },
+    'baja-agradable': {
+      title: '🌿 Estás en baja energía agradable',
+      text: 'Seguramente te sientes en calma o con sensación de tranquilidad. Es un buen momento para reflexionar o escuchar a otros.',
+      tip: 'Tip: Usa este estado para ordenar ideas, revisar pendientes o acompañar a alguien que necesite ser escuchado.'
+    },
+    'baja-desagradable': {
+      title: '🌧️ Estás en baja energía desagradable',
+      text: 'Tal vez te sientes cansado/a, triste o apagado/a. Tu cuerpo y tu mente piden pausa y cuidado.',
+      tip: 'Tip: Considera hacer una micropaula: levantarte, estirarte, tomar aire o comentar a alguien de confianza cómo te sientes.'
+    }
+  };
+
+  moodCards.forEach(card => {
+    card.addEventListener('click', () => {
+      // Quitar selección previa
+      moodCards.forEach(c => c.classList.remove('selected'));
+
+      // Marcar tarjeta actual
+      card.classList.add('selected');
+
+      const id = card.getAttribute('data-id');
+      const info = moodMessages[id];
+
+      if (info) {
+        moodOutput.innerHTML = `
+          <h4>${info.title}</h4>
+          <p>${info.text}</p>
+          <p><strong>${info.tip}</strong></p>
+        `;
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
